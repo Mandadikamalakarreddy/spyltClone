@@ -69,5 +69,4 @@ npm run dev
 yarn dev
 ```
 
-## Snippets (Code to Copy)
 
