@@ -1,20 +1,16 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { antonio, proximaNova } from "../lib/fonts";
+import FontOptimizer from "../components/FontOptimizer";
 import "./globals.css";
-
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
 
 export const metadata: Metadata = {
   title: "SPYLT - Premium Protein Energy Drinks | Fuel Your Adventure",
   description: "Discover SPYLT's delicious protein energy drinks that combine nostalgia with nutrition. Featuring 6 amazing flavors including Chocolate Milk, Strawberry Milk, and Cookies & Cream. Shelf-stable, lactose-free, and packed with protein + caffeine to fuel your fearless adventures. Available at local stores nationwide.",
+  viewport: {
+    width: "device-width",
+    initialScale: 1,
+    maximumScale: 1,
+  },
 };
 
 export default function RootLayout({
@@ -24,9 +20,20 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        <link 
+          rel="preload" 
+          href="/fonts/ProximaNova-Regular.otf" 
+          as="font" 
+          type="font/otf" 
+          crossOrigin="anonymous" 
+        />
+      </head>
       <body suppressHydrationWarning
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${antonio.variable} ${proximaNova.variable} antialiased`}
       >
+        <FontOptimizer />
+        {children}
         {children}
       </body>
     </html>

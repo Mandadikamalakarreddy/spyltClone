@@ -1,9 +1,12 @@
-@import url("https://fonts.googleapis.com/css2?family=Antonio:wght@100..700&display=swap");
 @import "tailwindcss";
 
+/* Fallback font-face for ProximaNova */
 @font-face {
-  font-family: "ProximaNova, sans-serif";
-  src: url("/fonts/ProximaNova-Regular.otf");
+  font-family: "ProximaNova";
+  src: url("/fonts/ProximaNova-Regular.otf") format("opentype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
 }
 
 @theme {
@@ -18,26 +21,53 @@
   --color-milk-yellow: #e3d3bc;
   --color-red: #a02128;
   --color-milk: #faeade;
-  --font-sans: "Antonio", sans-serif;
-  --font-paragraph: "ProximaNova, sans-serif";
+  --font-sans: var(--font-antonio), "Antonio", system-ui, sans-serif;
+  --font-paragraph: var(--font-proxima-nova), "ProximaNova", system-ui, sans-serif;
+}
+
+/* Global reset for consistent sizing */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px; /* Base font size for rem calculations */
+  -webkit-text-size-adjust: 100%; /* Prevent font scaling in landscape */
 }
 
 html,
 body {
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
   background-color: #faeade;
   color: #523122;
-  font-family: "Antonio", sans-serif;
+  font-family: var(--font-antonio), "Antonio", system-ui, sans-serif;
   overflow-x: hidden;
   scroll-behavior: smooth;
   scrollbar-width: none; /* Firefox */
   -ms-overflow-style: none; /* IE 10+ */
+  /* Ensure consistent font rendering */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
 }
 
 body::-webkit-scrollbar {
   display: none; /* Chrome, Safari */
+}
+
+/* Font loading optimization - prevent flash of unstyled text */
+body {
+  font-display: swap;
+}
+
+/* Ensure consistent font size rendering across browsers */
+* {
+  font-synthesis: none;
+  font-kerning: auto;
+  font-variant-ligatures: normal;
 }
 
 @layer utilities {
