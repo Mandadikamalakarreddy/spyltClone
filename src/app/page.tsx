@@ -1,7 +1,6 @@
 "use client";
 
 import Navbar from "@/components/Navbar";
-import LoadingScreen from "@/components/LoadingScreen";
 import FlavorSection from "@/sections/FlavorSection";
 import HeroSection from "@/sections/HeroSection";
 import MessageSection from "@/sections/MessageSection";
@@ -25,7 +24,6 @@ export default function Home() {
   });
   return (
     <main>
-      {/* <LoadingScreen /> */}
       <Navbar />
       <div id="smooth-wrapper">
         <div id="smooth-content">

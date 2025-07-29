@@ -1,36 +1,73 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+<div >
+ <br />
+  <div align="center" >
+   <a href="https://youtu.be/pqYxZ8jd768" target="_blank">
+     <img  src="public/images/Final.png" style="border-radius:10px;"  alt="Project Banner">
+   </a></div>
+ <br />
+ <br />
 
-## Getting Started
+ <div>
+   <img src="https://img.shields.io/badge/-React_JS_V19-black?style=for-the-badge&logoColor=white&logo=react&color=007ACC" alt="react.js" />
+   <img src="https://img.shields.io/badge/-Tailwind_CSS_v4-black?style=for-the-badge&logoColor=white&logo=tailwindcss&color=030712" alt="tailwindcss" />
+   <img src="https://img.shields.io/badge/-GSAP-black?style=for-the-badge&logoColor=white&logo=greensock&color=88CE02" alt="greensock" />
 
-First, run the development server:
+ </div>
+
+ <h3 style="font-weight:700;font-size:30px;">AWWWARDS Site of the Day Website</h3>
+
+  <div >
+    Ready to build a website that has won an Awwwards Site of the Day?
+    This tutorial guides you through creating a stunning, interactive site using <b>GSAP</b>, <b>ReactJS</b>, and <b>Tailwind CSS</b>.
+   </div>
+</div>
+
+## 📋 <a name="table">Table of Contents</a>
+
+1. 🚀 [Introduction](#introduction)
+2. ⚙️ [Tech Stack](#tech-stack)
+3. ✨ [Features](#features)
+4. 🤸 [Quick Start](#quick-start)
+5. 🕸️ [Snippets (Code to Copy)](#snippets)
+6. 🔗 [Assets](#links)
+7. 🌐 [Community](#more)
+
+## Introduction
+
+Dive into creating a cutting-edge web experience designed for Awwwards recognition, with **GSAP (GreenSock Animation Platform)** at its core. This project demonstrates how to leverage GSAP's powerful animation capabilities to craft fluid transitions, captivating scroll effects, and dynamic UI interactions, combining it with React and Tailwind CSS for a truly immersive and visually stunning website.
+
+## Tech Stack
+
+- ⚛️ React 19
+- 🌀 Tailwind CSS v4
+- 🎞️ GSAP (GreenSock Animation Platform)
+
+## Features
+
+In this course, You’ll learn how to:
+
+- ✨ Parallax Like a Pro
+- ⚡️ Master Clip-Path Magic
+- 🕹️ Control ScrollTrigger & ScrollSmoother
+- 😉 Pin Elements with Style
+- 🧑‍💻 Reveal Text Like Awwwards Pros
+- 👏 Build GSAP Timelines that Actually Feel Good
+- 📱 It's Fully responsive and mobile-friendly
+
+## Quick Start
 
 ```bash
+
+# 1. Install dependencies
+npm install
+# or
+yarn
+
+# 2. Start the dev server
 npm run dev
 # or
 yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Snippets (Code to Copy)
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
