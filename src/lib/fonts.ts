@@ -12,7 +12,7 @@ export const antonio = Antonio({
 export const proximaNova = localFont({
   src: [
     {
-      path: "../public/fonts/ProximaNova-Regular.otf",
+      path: "../../public/fonts/ProximaNova-Regular.otf",
       weight: "400",
       style: "normal",
     },

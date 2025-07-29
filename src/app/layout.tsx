@@ -6,11 +6,12 @@ import "./globals.css";
 export const metadata: Metadata = {
   title: "SPYLT - Premium Protein Energy Drinks | Fuel Your Adventure",
   description: "Discover SPYLT's delicious protein energy drinks that combine nostalgia with nutrition. Featuring 6 amazing flavors including Chocolate Milk, Strawberry Milk, and Cookies & Cream. Shelf-stable, lactose-free, and packed with protein + caffeine to fuel your fearless adventures. Available at local stores nationwide.",
-  viewport: {
-    width: "device-width",
-    initialScale: 1,
-    maximumScale: 1,
-  },
+};
+
+export const viewport = {
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 1,
 };
 
 export default function RootLayout({

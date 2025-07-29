@@ -4,10 +4,6 @@ const nextConfig: NextConfig = {
   eslint: {
     ignoreDuringBuilds: true,
   },
-  // Optimize fonts for deployment
-  optimizeFonts: true,
-  // Ensure proper handling of static assets
-  assetPrefix: process.env.NODE_ENV === 'production' ? '' : '',
   // Configure webpack for font handling
   webpack: (config) => {
     config.module.rules.push({
@@ -18,10 +14,6 @@ const nextConfig: NextConfig = {
       }
     });
     return config;
-  },
-  // Enable experimental features for better font loading
-  experimental: {
-    optimizeCss: true,
   },
   // Headers for font caching
   async headers() {
