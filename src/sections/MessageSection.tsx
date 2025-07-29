@@ -7,6 +7,8 @@ import { SplitText, ScrollTrigger } from "gsap/all";
 gsap.registerPlugin(ScrollTrigger);
 
 const MessageSection = () => {
+
+  
   useGSAP(() => {
     const firstMsgSplit = SplitText.create(".first-message", {
       type: "words",
@@ -64,7 +66,6 @@ const MessageSection = () => {
             start:"top center",
             end:"bottom center",
             scrub:true,
-            markers:true,
         }
     })
     
@@ -73,7 +74,7 @@ const MessageSection = () => {
         rotate:3,
         ease:"power1.inOut",
         duration:1,
-        stagger:0.01,
+        stagger:1,
     })
 
 

@@ -1,16 +1,25 @@
 "use client";
 
 
-import Image from "next/image";
-import heroImage from "../../public/images/static-img.png"
 import gsap from "gsap"
 import { useGSAP } from "@gsap/react";
 import { SplitText, ScrollTrigger } from "gsap/all";
+import { useMediaQuery } from "react-responsive";
 
 gsap.registerPlugin(ScrollTrigger);
 
 
 const HeroSection = () => {
+
+  
+  const isMobile = useMediaQuery({
+    query : "(max-width: 768px)",
+  })
+
+
+  const isTablet = useMediaQuery({
+    query : "(max-width: 1024px)"
+  })
 
 
   useGSAP(()=>{
@@ -56,8 +65,29 @@ const HeroSection = () => {
 
   return (
     <section className="bg-main-bg">
-      <div className="hero-container">
-        <Image src={heroImage} alt="hero-image" className="absolute bottom-0 left-1/2 -translate-x-1/2 object-auto scale-100 md:scale-150 " />
+      <div className="hero-container" suppressHydrationWarning={true}>
+        {isTablet ? (
+          <>
+            {isMobile && (
+              <img
+                src="/images/hero-bg.png"
+                className="absolute bottom-40 size-full object-cover"
+              />
+            )}
+            <img
+              src="/images/hero-img.png"
+              className="absolute bottom-0 left-1/2 -translate-x-1/2 object-auto"
+            />
+          </>
+        ) : (
+          <video
+            src="/videos/hero-bg.mp4"
+            autoPlay
+            muted
+            playsInline
+            className="absolute inset-0 w-full h-full object-cover"
+          />
+        )}
         <div className="hero-content opacity-0">
             <div className="overflow-hidden">
                <h1 className="hero-title">Freaking Delicious</h1>
@@ -74,7 +104,7 @@ const HeroSection = () => {
             <h2>
               Live life to the fullest  with SPYLT: Shatter boredom and embrace your inner kid with every deliciously smooth chug.
             </h2>
-            <button className="hero-button">
+            <button suppressHydrationWarning={true} className="hero-button">
             <p>Chug a Spylt</p>
             </button>
         </div>

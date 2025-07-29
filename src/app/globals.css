@@ -151,7 +151,7 @@ body::-webkit-scrollbar {
         }
 
         h1 {
-          @apply absolute md:bottom-10 md:left-10 bottom-5 left-5 text-milk md:text-6xl text-3xl font-semibold uppercase tracking-tighter;
+          @apply absolute md:bottom-5 md:left-10 bottom-5 left-5 text-milk md:text-6xl text-3xl font-semibold uppercase tracking-tighter;
         }
       }
     }
@@ -241,8 +241,29 @@ body::-webkit-scrollbar {
     }
 
     h1 {
-      @apply uppercase text-[20.5vw] leading-[105%] tracking-[-.4vw] ml-[2vw] font-bold;
+      @apply uppercase text-[16vw] leading-[105%] tracking-[-.4vw] ml-[2vw] font-bold;
     }
+  }
+
+    .place-section {
+    @apply relative min-h-dvh 2xl:min-h-[120dvh] w-full bg-[#222123];
+
+ 
+    .place-title {
+      @apply 2xl:max-w-4xl xl:max-w-2xl md:py-0 py-3 md:pb-5 pb-0 lg:pb-0 md:text-center text-milk;
+    }
+
+    .place-text-scroll {
+      @apply rotate-[3deg] text-nowrap opacity-0 md:-mt-32 -mt-24;
+    }
+
+      .place-button {
+        @apply md:mt-10 mt-5 text-milk bg-[#222123] uppercase font-bold text-lg rounded-full md:p-5 p-3 md:px-16 px-10 z-10;
+      }
+   .big-img {
+      @apply h-full w-full object-cover object-center md:object-bottom lg:object-contain;
+    }
+
   }
 
   .footer-section {
