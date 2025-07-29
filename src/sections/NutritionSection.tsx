@@ -6,12 +6,15 @@ import { useEffect, useState } from "react";
 import { useMediaQuery } from "react-responsive";
 import  { ScrollTrigger, SplitText } from "gsap/all";
 import gsap from "gsap"
+import { useFontsLoaded } from "@/hooks/useFontsLoaded";
+
 
 
 
 gsap.registerPlugin(ScrollTrigger);
 
 const NutritionSection = () => {
+  const fontsLoaded = useFontsLoaded();
 
   const isMobile = useMediaQuery({
     query : "(max-width: 768px)",
@@ -29,6 +32,8 @@ const NutritionSection = () => {
 
 
   useGSAP(()=>{
+    // Only run animations if fonts are loaded
+    if (!fontsLoaded) return;
     const titleSplit = SplitText.create(".nutrition-title",{
       type:"chars"
     })
@@ -75,7 +80,7 @@ const NutritionSection = () => {
     })
 
 
-  })
+  }, [fontsLoaded])
 
 
   return (

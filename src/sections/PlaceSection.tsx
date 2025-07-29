@@ -2,13 +2,18 @@
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger, SplitText } from "gsap/all";
 import gsap from "gsap";
+import { useFontsLoaded } from "@/hooks/useFontsLoaded";
+
 
 gsap.registerPlugin(ScrollTrigger);
 
 const PlaceSection = () => {
+  const fontsLoaded = useFontsLoaded();
 
 
   useGSAP(()=>{
+    // Only run animations if fonts are loaded
+    if (!fontsLoaded) return;
     const firstTitle = SplitText.create(".place-title",{
       type:"chars"
     })
@@ -51,14 +56,14 @@ const PlaceSection = () => {
         clipPath:"polygon(0 0, 100% 0, 100% 100%, 0 100%)",
         ease:"power1.inOut"
       })
-  })
+  }, [fontsLoaded])
 
   return (
     <div className="place-section">
       <div className="relative z-20">
         <img
           src="/images/footer-dip.png"
-          alt=""
+          alt=" Footer Dip"
           className="w-full -translate-y-6 object-cover"
         />
       </div>

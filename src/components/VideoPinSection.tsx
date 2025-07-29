@@ -3,6 +3,9 @@
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap/all";
 import { ScrollTrigger } from "gsap/all";
+import spinCircle from "../../public/images/circle-text.svg";
+import play from "../../public/images/play.svg";
+import Image from "next/image";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -34,15 +37,17 @@ const VideoPinSection = () => {
       >
         <video src="/videos/pin-video.mp4" playsInline muted loop autoPlay />
         <div className="abs-center md:scale-100 scale-200">
-          <img
-            src="/images/circle-text.svg"
+          <Image
+            src={spinCircle}
             alt="circle-text-image"
+            priority
             className="spin-circle"
           />
           <div className="play-btn">
-            <img
-              src="/images/play.svg"
+            <Image
+              src={play}
               alt="play-btn"
+              priority
               className="size-[3vw] ml-[.5vw]"
             />
           </div>

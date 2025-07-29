@@ -3,13 +3,17 @@
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { SplitText, ScrollTrigger } from "gsap/all";
+import { useFontsLoaded } from "@/hooks/useFontsLoaded";
 
 gsap.registerPlugin(ScrollTrigger);
 
 const MessageSection = () => {
+  const fontsLoaded = useFontsLoaded();
 
   
   useGSAP(() => {
+    // Only run animations if fonts are loaded
+    if (!fontsLoaded) return;
     const firstMsgSplit = SplitText.create(".first-message", {
       type: "words",
     });
@@ -78,7 +82,7 @@ const MessageSection = () => {
     })
 
 
-  });
+  }, [fontsLoaded]);
 
   return (
     <section className="message-content">

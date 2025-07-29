@@ -5,11 +5,16 @@ import VideoPinSection from "@/components/VideoPinSection";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { ScrollTrigger, SplitText } from "gsap/all";
+import { useFontsLoaded } from "@/hooks/useFontsLoaded";
 
 gsap.registerPlugin(ScrollTrigger);
 
 const BenefitSection = () => {
+  const fontsLoaded = useFontsLoaded();
+
   useGSAP(() => {
+    // Only run animations if fonts are loaded
+    if (!fontsLoaded) return;
     const revealTl = gsap.timeline({
       delay: 1,
       scrollTrigger: {
@@ -67,7 +72,7 @@ const BenefitSection = () => {
       stagger: 0.02,
       scrub: 1.5,
     });
-  });
+  }, [fontsLoaded]);
 
   return (
     <section className="benefit-section">

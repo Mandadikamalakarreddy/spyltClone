@@ -1,6 +1,10 @@
 "use client"
 
 import { FaInstagram, FaYoutube  } from "react-icons/fa";
+import Image from "next/image";
+import titok from "../../public/images/tiktok.svg";
+import footer from "../../public/images/footer-drink.png";
+import arrow from "../../public/images/arrow.svg";
 
 
 
@@ -15,7 +19,7 @@ const FooterSection = () => {
             #CHUGRESPONSIBLY
           </h1>
         </div>
-        <img src="/images/footer-drink.png" alt=""  className=" abs-center top-0 object-contain  md:hidden block"/>
+        <Image src={footer} alt="" className=" abs-center top-0 object-contain  md:hidden block"/>
 
         <video
           src="/videos/splash.mp4"
@@ -33,7 +37,7 @@ const FooterSection = () => {
             <FaInstagram size={34} className="text-white"/>
           </div>
           <div className="social-btn">
-            <img src="./images/tiktok.svg" alt="" />
+            <Image src={titok} alt="tiktok" priority />
           </div>
         </div>
 
@@ -66,7 +70,7 @@ const FooterSection = () => {
                 className="w-full placeholder:font-sans placeholder:text-[#999999]"
                 suppressHydrationWarning={true}
               />
-              <img src="/images/arrow.svg" alt="arrow" />
+              <Image src={arrow} alt="arrow" priority />
             </div>
           </div>
         </div>

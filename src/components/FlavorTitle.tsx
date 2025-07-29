@@ -3,45 +3,68 @@
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { SplitText, ScrollTrigger } from "gsap/all";
+import { useFontsLoaded } from "@/hooks/useFontsLoaded";
+import { useState, useEffect } from "react";
 
 gsap.registerPlugin(ScrollTrigger);
+
 const FlavorTitle = () => {
+  const fontsLoaded = useFontsLoaded();
+  const [isClient, setIsClient] = useState(false);
+
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
+
   useGSAP(() => {
-    const firstTextSplit = SplitText.create(".first-text-split h1", {
-      type: "chars",
-    });
+    // Only run animations if fonts are loaded and we're on the client
+    if (!fontsLoaded || !isClient) return;
 
-    const secondTextSplit = SplitText.create(".second-text-split h1", { 
-      type: "chars",
-    });
+    gsap.delayedCall(0.1, () => {
+      const firstTextElement = document.querySelector(".first-text-split h1");
+      const secondTextElement = document.querySelector(".second-text-split h1");
+      const flavorTextScroll = document.querySelector(".flavor-text-scroll");
 
-    gsap.from(firstTextSplit.chars, {
-      yPercent: 200,
-      stagger: 0.02,
-      ease: "power1.inOut",
-      scrollTrigger: {
-        trigger: ".flavor-section",
-        start: "top 30%",
-      },
+      if (firstTextElement && secondTextElement && flavorTextScroll) {
+        const firstTextSplit = SplitText.create(".first-text-split h1", {
+          type: "chars",
+        });
+
+        const secondTextSplit = SplitText.create(".second-text-split h1", { 
+          type: "chars",
+        });
+
+        gsap.from(firstTextSplit.chars, {
+          yPercent: 200,
+          stagger: 0.02,
+          ease: "power1.inOut",
+          scrollTrigger: {
+            trigger: ".flavor-section",
+            start: "top 30%",
+          },
+        });
+
+        gsap.to(".flavor-text-scroll", {
+          duration: 1,
+          clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
+          scrollTrigger: {
+            trigger: ".flavor-section",
+            start: "top 10%",
+          },
+        });
+
+        gsap.from(secondTextSplit.chars, {
+          yPercent: 200,
+          stagger: 0.02,
+          ease: "power1.inOut",
+          scrollTrigger: {
+            trigger: ".flavor-section",
+            start: "top 1%",
+          },
+        });
+      }
     });
-    gsap.to(".flavor-text-scroll", {
-      duration: 1,
-      clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
-      scrollTrigger: {
-        trigger: ".flavor-section",
-        start: "top 10%",
-      },
-    });
-     gsap.from(secondTextSplit.chars, {
-      yPercent: 200,
-      stagger: 0.02,
-      ease: "power1.inOut",
-      scrollTrigger: {
-        trigger: ".flavor-section",
-        start: "top 1%",
-      },
-    });
-  });
+  }, [fontsLoaded, isClient]);
 
   return (
     <div className="general-title col-center h-full 2xl:gap-32 xl:gap-24 gap-16 ">
