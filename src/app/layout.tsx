@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { antonio, proximaNova } from "../lib/fonts";
 import FontOptimizer from "../components/FontOptimizer";
+import GSAPInitializer from "../components/GSAPInitializer";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -33,8 +34,8 @@ export default function RootLayout({
       <body suppressHydrationWarning
         className={`${antonio.variable} ${proximaNova.variable} antialiased`}
       >
+        <GSAPInitializer />
         <FontOptimizer />
-        {children}
         {children}
       </body>
     </html>

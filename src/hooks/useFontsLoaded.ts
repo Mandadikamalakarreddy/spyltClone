@@ -11,20 +11,24 @@ export const useFontsLoaded = () => {
     const checkFontsLoaded = async () => {
       try {
         // Check if fonts are loaded using document.fonts API
-        if (document.fonts && document.fonts.ready) {
+        if (typeof window !== 'undefined' && document.fonts && document.fonts.ready) {
           await document.fonts.ready;
           setFontsLoaded(true);
         } else {
           // Fallback for browsers that don't support document.fonts
-          setTimeout(() => setFontsLoaded(true), 1000);
+          setTimeout(() => setFontsLoaded(true), 1500);
         }
       } catch (error) {
+        console.warn('Font loading check failed, using fallback:', error);
         // Fallback if font loading check fails
-        setTimeout(() => setFontsLoaded(true), 1000);
+        setTimeout(() => setFontsLoaded(true), 1500);
       }
     };
 
-    checkFontsLoaded();
+    // Only run on client side
+    if (typeof window !== 'undefined') {
+      checkFontsLoaded();
+    }
   }, []);
 
   return fontsLoaded;

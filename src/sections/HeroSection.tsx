@@ -1,15 +1,12 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import gsap from "gsap"
+import { gsap, ScrollTrigger, SplitText } from "../lib/gsap";
 import { useGSAP } from "@gsap/react";
-import { SplitText, ScrollTrigger } from "gsap/all";
 import Image from "next/image";
 import heroBg from "../../public/images/hero-bg.png";
 import heroImg from "../../public/images/hero-img.png";
 import { useFontsLoaded } from "@/hooks/useFontsLoaded";
-
-gsap.registerPlugin(ScrollTrigger);
 
 
 const HeroSection = () => {
